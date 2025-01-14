@@ -1,0 +1,10 @@
+{% extends 'Blogger/bloggerbase.html' %}
+{%load crispy_forms_tags %}
+{% block content %}
+<form method="POST"  enctype="multipart/form-data">
+      {% csrf_token %}
+      {{data1|crispy}}
+
+    <button type="submit" style="border-radius:8px;background-color:#cc3412;color:white;border:none">Add blog</button>
+</form>
+{% endblock %}

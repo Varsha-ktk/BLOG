@@ -1,0 +1,26 @@
+{% extends 'Admin/adminbase.html' %}
+{%  block content %}
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Update</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.user}}</td>
+      <td>{{i.email}}</td>
+      <td><a href="{% url 'blogger_delete' i.id %}" class="btn btn-danger" >Delete</a></td>
+    <td><a href="{% url 'blogger_update' i.id %}" class="btn btn-danger" >Update</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

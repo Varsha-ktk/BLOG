@@ -1,0 +1,24 @@
+{% extends 'Blogger/bloggerbase.html' %}
+{%  block content %}
+
+
+ <div class="row">
+    {% for i in data %}
+    <div class="col-md-9 mb-9">
+        <div class="card" style="background-color: white; color: black; margin: 2px; border-radius: 8px; font-family: Garamond; height:100%;">
+             <div class="card-body">
+                <h5 class="card-title" style="color:blue;"><b>{{i.blog_title}}</b></h5>
+                <h6> {{ i.blog_content}}</h6>
+                <h6>date: {{ i.date }}</h6>
+                <p class="card-text">{{ i.author_image.url }}</p>
+                <a href="{% url 'postupdate' i.id %}" class="btn btn-primary" style="margin-bottom:8px">update</a>
+
+                    <a href="{% url 'postdelete' i.id %}" class="btn btn-primary" style="margin-bottom:8px">delete</a>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
